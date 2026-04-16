@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>歌曲新增</title>
+    <!-- 引入歌曲新增的样式表 -->
+    <link rel="stylesheet" href="/static/css/singing_add.css">
+    <!-- 引入layer插件的样式表 -->
+    <link rel="stylesheet" href="/static/js/layer/layer/theme/default/layer.css">
+    <!-- 引入jQuery库 -->
+    <script src="/static/js/jquery-3.0.0.js"></script>
+    <!-- 引入layer插件 -->
+    <script src="/static/js/layer/layer/layer.js"></script>
+    <!-- 引入歌曲新增的js文件 -->
+    <script src="/static/js/singing.js"></script>
+</head>
+<body>
+     <!-- 表单 -->
+     <!-- 在表单内添加隐藏的id字段 -->
+     <form action="" id="editForm" enctype="multipart/form-data">
+         <input type="hidden" name="id" value="{{ data.singing_data['id'] }}">
+         <h2>歌曲修改</h2>
+         <!-- 歌曲名称 -->
+         <div>
+             <label for="song">歌曲名称：</label>
+             <input type="text" name="song" id="song" value="{{ data.singing_data["song"] }}">
+         </div>
+          <!-- 专辑 -->
+          <div>
+             <label for="album">专辑：</label>
+             <input type="text" name="album" id="album" value="{{ data.singing_data["album"] }}">
+         </div>
+          <!-- 歌曲文件 -->
+          <div>
+             <label for="singing">歌曲：</label>
+             <input type="file" name="singing" id="singing">
+         </div>
+          <!-- 歌曲封面 -->
+          <div>
+             <label for="img">歌曲封面：</label>
+             <input type="file" name="img" id="img">
+         </div>
+          <!-- 歌手 -->
+          <div>
+             <label for="singerid">歌手：</label>
+             <select name="singerid" id="singerid">
+                 <option value="">===请选择歌手id===</option>
+                 {% for item in data.id_lis %}
+                 <option value="{{ item["id"] }}">{{ item["singer"] }}</option>
+                 {% endfor %}
+             </select>
+         </div>
+         <!-- 排行榜 -->
+         <div>
+            <label for="rankid">排行榜：</label>
+             <select name="rankid" id="rankid">
+                 <option value="">===请选择排行榜===</option>
+                 {% for item in data.rank_lis %}
+                 <option value="{{ item["id"] }}">{{ item["name"] }}</option>
+                 {% endfor %}
+             </select>
+         </div>
+          <!-- 歌词 -->
+         <div>
+             <label for="intro">歌词：</label>
+             <input type="text" name="intro" id="intro" value="{{ data.singing_data["intro"] }}">
+         </div>
+         <!-- 保存按钮 -->
+         <div>
+         <button type="button" id="btn_edit">保存</button>
+         </div>
+     </form>
+
+
+</body>
+</html>

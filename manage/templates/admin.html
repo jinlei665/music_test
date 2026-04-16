@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lei的音乐管理系统</title>
+    <link rel="icon" href="/static/images/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="/static/css/design-system.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Vue 3 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.min.js"></script>
+</head>
+<body>
+    <!-- Vue 3 App -->
+    <div id="app">
+        <div class="top">
+            <h2>====Lei的音乐后台管理</h2>
+        </div>
+        <div class="shell">
+            <ul class="nav">
+                <li :class="{ active: currentMenu === 'logo' }" id="logo">
+                    <a href="#">
+                        <div class="icon">
+                            <div class="imageBox">
+                                <img src="/static/images/微信图片_20241129160757.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="text">Lei的音乐管理后台</div>
+                    </a>
+                </li>
+                <li :class="{ active: currentMenu === 'user' }">
+                    <a href="/manage/user_list" target="mainFrame" @click="setActive('user')">
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="text">用户管理</div>
+                    </a>
+                </li>
+                <li :class="{ active: currentMenu === 'ranking' }">
+                    <a href="/ranking/ranking_list" target="mainFrame" @click="setActive('ranking')">
+                        <div class="icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="text">排行管理</div>
+                    </a>
+                </li>
+                <li :class="{ active: currentMenu === 'singer' }">
+                    <a href="/singer/singer_list" target="mainFrame" @click="setActive('singer')">
+                        <div class="icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="text">歌手管理</div>
+                    </a>
+                </li>
+                <li :class="{ active: currentMenu === 'singing' }">
+                    <a href="/singing/singing_list" target="mainFrame" @click="setActive('singing')">
+                        <div class="icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="text">歌曲管理</div>
+                    </a>
+                </li>
+                <li :class="{ active: currentMenu === 'xiaoyx' }">
+                    <a href="/xiaoyouxi/xyx" target="mainFrame" @click="setActive('xiaoyx')">
+                        <div class="icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="text">小游戏</div>
+                    </a>
+                </li>
+                <li :class="{ active: currentMenu === 'gangqin' }">
+                    <a href="/gangqin/gangqin_list" target="mainFrame" @click="setActive('gangqin')">
+                        <div class="icon">
+                            <i class="fas fa-piano"></i>
+                        </div>
+                        <div class="text">钢琴</div>
+                    </a>
+                </li>
+                <li :class="{ active: currentMenu === 'me' }">
+                    <a href="/static/images/二维码.jpg" target="mainFrame" @click="setActive('me')">
+                        <div class="icon">
+                            <div class="imageBox">
+                                <img src="/static/images/微信图片_20241129160757.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="text">ME</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="content">
+            <iframe src="/manage/welcome" frameborder="0" name="mainFrame" id="mainFrame"></iframe>
+        </div>
+    </div>
+
+    <script src="/static/js/admin.js"></script>
+
+    <!-- Vue 3 Admin App -->
+    <script>
+    const { createApp, ref, onMounted } = Vue;
+
+    const app = createApp({
+        setup() {
+            const currentMenu = ref('logo');
+
+            // 设置激活菜单
+            const setActive = (menu) => {
+                currentMenu.value = menu;
+            };
+
+            // 监听 iframe 加载完成，同步菜单状态
+            const syncMenuFromIframe = () => {
+                const iframe = document.getElementById('mainFrame');
+                if (iframe) {
+                    iframe.addEventListener('load', () => {
+                        try {
+                            const iframeSrc = iframe.src;
+                            if (iframeSrc.includes('user_list')) {
+                                currentMenu.value = 'user';
+                            } else if (iframeSrc.includes('ranking_list')) {
+                                currentMenu.value = 'ranking';
+                            } else if (iframeSrc.includes('singer_list')) {
+                                currentMenu.value = 'singer';
+                            } else if (iframeSrc.includes('singing_list')) {
+                                currentMenu.value = 'singing';
+                            } else if (iframeSrc.includes('xyx')) {
+                                currentMenu.value = 'xiaoyx';
+                            } else if (iframeSrc.includes('gangqin')) {
+                                currentMenu.value = 'gangqin';
+                            } else if (iframeSrc.includes('welcome')) {
+                                currentMenu.value = 'logo';
+                            }
+                        } catch (e) {
+                            // 跨域访问限制，忽略
+                        }
+                    });
+                }
+            };
+
+            onMounted(() => {
+                syncMenuFromIframe();
+            });
+
+            return {
+                currentMenu,
+                setActive
+            };
+        }
+    });
+
+    app.mount('#app');
+    </script>
+</body>
+</html>

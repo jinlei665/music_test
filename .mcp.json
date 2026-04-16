@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "browsermcp": {
+      "command": "npx",
+      "args": ["@browsermcp/mcp@latest"]
+    },
+    "tavily": {
+      "command": "npx",
+      "args": ["-y", "@tavily/mcp-server"],
+      "env": {
+        "TAVILY_API_KEY": "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"
+      }
+    }
+  }
+}

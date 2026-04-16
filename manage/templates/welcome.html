@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎界面</title>
+</head>
+    <script src="/static/js/jquery-3.0.0.js"></script>
+    <script src="/static/js/login.js"></script>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+
+    }
+    #vi{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: fill;
+        z-index: -1;
+
+    }
+    /* 隐藏整个进度条 */
+/* 全屏按钮 */
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+/* 播放按钮 */
+video::-webkit-media-controls-play-button {
+  display: none;
+}
+/* 进度条 */
+video::-webkit-media-controls-timeline {
+  display: none;
+}
+/* 观看的当前时间 */
+video::-webkit-media-controls-current-time-display {
+  display: none;
+}
+/* 剩余时间 */
+video::-webkit-media-controls-time-remaining-display {
+  display: none;
+}
+/* 音量按钮 */
+video::-webkit-media-controls-mute-button {
+  display: none;
+}
+video::-webkit-media-controls-toggle-closed-captions-button {
+  display: none;
+}
+/* 音量的控制条 */
+video::-webkit-media-controls-volume-slider {
+  display: none;
+}
+/* 所有控件 */
+video::-webkit-media-controls-enclosure {
+  display: none;
+}
+
+
+    {#video{#}
+    {#    width: 100%;#}
+    {#    height: 100%;#}
+    {#    position: absolute;#}
+    {#    z-index: -1;#}
+    {#}#}
+</style>
+<body>
+<video controls id="vi" loop autoplay muted aria-controls="false" >
+
+<source src="/static/images/welcome.mp4" type="video/mp4" >
+
+
+
+</video>
+{#<img src="/static/images/2.webp" alt="">#}
+{#<video src="/static/images/合12sd成%201%20(1).mp4"></video>#}
+</body>
+</html>

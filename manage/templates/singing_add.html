@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>歌曲新增</title>
+    <!-- 引入样式表 -->
+    <link rel="stylesheet" href="/static/css/singing_add.css">
+    <link rel="stylesheet" href="/static/js/layer/layer/theme/default/layer.css">
+    <!-- 引入js文件 -->
+    <script src="/static/js/jquery-3.0.0.js"></script>
+    <script src="/static/js/layer/layer/layer.js"></script>
+    <script src="/static/js/singing.js"></script>
+</head>
+<body>
+     <!-- 表单 -->
+     <form action="" id="addForm">
+        <h2>歌曲新增</h2>
+        <div>
+            <label for="song">歌曲名称：</label>
+            <input type="text" name="song" id="song">
+        </div>
+         <div>
+            <label for="album">专辑：</label>
+            <input type="text" name="album" id="album">
+        </div>
+         <div>
+            <label for="singing">歌曲：</label>
+            <input type="file" name="singing" id="singing">
+        </div>
+         <div>
+            <label for="img">歌曲封面：</label>
+            <input type="file" name="img" id="img">
+        </div>
+         <div>
+           <label for="singerid">歌手：</label>
+            <select name="singerid" id="singerid">
+                <option value="">===请选择歌手id===</option>
+                <!-- 循环输出歌手列表 -->
+                {% for item in data.id_lis %}
+                <option value="{{ item["id"] }}">{{ item["singer"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+           <label for="rankid">排行榜：</label>
+            <select name="rankid" id="rankid">
+                <option value="">===请选择排行榜===</option>
+                <!-- 循环输出排行榜列表 -->
+                {% for item in data.rank_lis %}
+                <option value="{{ item["id"] }}">{{ item["name"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+         <div>
+            <label for="intro">歌词：</label>
+            <input type="text" name="intro" id="intro">
+        </div>
+        <div>
+        <!-- 保存按钮 -->
+        <button type="button" id="btn_add">保存</button>
+        <!-- 清空按钮 -->
+        <button type="reset" id="btn_res">清空</button>
+        </div>
+    </form>
+
+
+</body>
+</html>

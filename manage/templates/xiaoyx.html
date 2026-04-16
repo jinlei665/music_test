@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jello Jumping Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='/static/css/css.css'>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main>
+	<div class="streak"></div>
+	<div class="help" tabindex="0">?</div>
+	<div class="help-window">
+		<h1>How to Play</h1>
+		<p><strong>Click/tap</strong> or press <strong>[spacebar]</strong> to change the color of the jello until it matches the color of the box it’s about to land on.</p>
+		<section>
+			<figure><span class="red"></span> &#8594; <span class="yellow"></span><br>&#8593;<span></span><span></span>&#8595; <span class="ascii-arrow">——&gt;</span><br><span class="blue"></span> &#8592; <span class="green"></span></figure><figure>
+				<div class="box blue"></div>
+				<div class="jello red"></div>
+			</figure>
+		</section>
+		<p>+1 point each matching land and back to zero if missed. The higher the streak, the faster the jello will jump. See how many you can get in a row!</p>
+	</div>
+	<div class="jello-hitbox">
+		<div class="jello"></div>
+	</div>
+	<div class="boxes">
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+	<div class="click-area"></div>
+</main>
+<!-- partial -->
+  <script src="/static/js/script.js"></script>
+
+	<div style="display:none;"><a href="">仿站软件</a></div>
+</body>
+</html>

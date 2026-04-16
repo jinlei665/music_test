@@ -1,0 +1,42 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Media files
+*.mp3
+*.mp4
+*.wav
+*.ogg
+*.flac
+
+# Images
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.svg
+*.ico
+*.bmp
+
+# Environment files
+.env
+
+# Node modules
+node_modules/
+
+# Large data files
+static/singing/
+static/sound/

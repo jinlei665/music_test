@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table thead tr {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table tbody tr {
+    background-color: #f2f2f2;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+table td, table th {
+    padding: 8px;
+    text-align: left;
+}
+
+/* 添加默认图片样式 */
+#img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    background: url('/static/images/暂无图片.jpg') no-repeat center #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form {
+    width: 80%;
+    margin: 20px auto;
+}
+
+form input[type="text"] {
+    width: 70%;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+form input[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form select {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+form input[type="text"]:focus, form select:focus {
+    outline: none;
+    border: 1px solid #4CAF50;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button.bth_add {
+    margin-bottom: 20px;
+}
+
+button.bth_add:hover {
+    background-color: #45a049;
+}
+
+button.bth {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+button.bth p {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 10px;
+}
+
+button.bth p:hover {
+    background-color: #45a049;
+}
+
+button.bth p:last-child {
+    margin-right: 0;
+}
+
+
+/* 添加与user.css一致的分页样式 */
+/* 分页容器 */
+.pagination {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin: 20px 155px;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/* 页码元素 */
+.pagination a {
+    padding: 8px 14px;
+    border-radius: 4px;
+    color: #666;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+/* 当前选中页 */
+.pagination a.active {
+    background: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* 页码悬停效果 */
+.pagination a:not(.active):hover {
+    background: #f5f5f5;
+    border-color: #ddd;
+}
+
+/* 省略号样式 */
+.pagination .ellipsis {
+    padding: 0 10px;
+    color: #999;
+}
+
+/* 禁用状态 */
+.pagination a.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

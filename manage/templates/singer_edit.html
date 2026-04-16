@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!-- 设置字符编码为UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- 设置网页标题 -->
+    <title>排行修改</title>
+    <!-- 引入CSS样式表 -->
+    <link rel="stylesheet" href="/static/css/ranking_add.css">
+    <!-- 引入layer样式表 -->
+    <link rel="stylesheet" href="/static/js/layer/layer/theme/default/layer.css">
+    <!-- 引入jQuery库 -->
+    <script src="/static/js/jquery-3.0.0.js"></script>
+    <!-- 引入layer库 -->
+    <script src="/static/js/layer/layer/layer.js"></script>
+    <!-- 引入singer.js库 -->
+    <script src="/static/js/singer.js"></script>
+</head>
+<body>
+     <!-- 表单 -->
+     <form action="" id="editForm">
+         <!-- 隐藏的id输入框 -->
+         <input type="hidden" name="id" value="{{ data["id"] }}">
+        <!-- 歌手修改标题 -->
+        <h2>歌手修改</h2>
+        <!-- 歌手名称输入框 -->
+        <div>
+            <label for="singer">歌手名称：</label>
+            <input type="text" name="singer" id="edit_singer" value="{{ data["singer"] }}">
+        </div>
+         <!-- 歌手id输入框 -->
+         <div>
+            <label for="id">歌手id：</label>
+            <input type="text" name="id" id="edit_id" value="{{ data["id"] }}">
+        </div>
+         <!-- 歌手图片输入框 -->
+         <div>
+            <label for="singerimg">歌手图片：</label>
+
+            <!-- 图片上传 -->
+            <input type="file" name="singerimg" id="img">
+        </div>
+        <!-- 保存按钮 -->
+        <button type="button" id="btn_edit">保存</button>
+    </form>
+
+
+</body>
+</html>

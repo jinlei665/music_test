@@ -1,0 +1,90 @@
+<!-- Bottom Fixed Player Bar -->
+<div id="player-container" class="player-bar">
+    <audio id="player-audio" class="player-audio"></audio>
+
+    <!-- Progress Bar -->
+    <div class="player-progress">
+        <input type="range" id="player-progress-bar" class="progress-range" value="0" min="0" max="100">
+        <div class="progress-time">
+            <span id="current-time">0:00</span>
+            <span id="total-time">0:00</span>
+        </div>
+    </div>
+
+    <!-- Left: Album Cover & Song Info -->
+    <div class="player-left">
+        <img id="player-img" class="player-cover" src="img/暂无图片.jpg" alt="专辑封面">
+        <div class="player-info">
+            <span id="player-song-name" class="player-song-name">未播放</span>
+            <span id="player-artist" class="player-artist">未知歌手</span>
+        </div>
+    </div>
+
+    <!-- Center: Controls -->
+    <div class="player-controls">
+        <button class="control-btn" id="prev-btn" title="上一首">
+            <i class="fas fa-step-backward"></i>
+        </button>
+        <button class="control-btn play-btn" id="play-pause-btn" title="播放/暂停">
+            <i class="fas fa-play"></i>
+        </button>
+        <button class="control-btn" id="next-btn" title="下一首">
+            <i class="fas fa-step-forward"></i>
+        </button>
+    </div>
+
+    <!-- Right: Volume & Actions -->
+    <div class="player-right">
+        <div class="volume-control">
+            <button class="control-btn" id="volume-btn" title="音量">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <input type="range" id="volume-bar" class="volume-range" value="80" min="0" max="100">
+        </div>
+        <button class="control-btn" id="lyrics-btn" title="歌词">
+            <i class="fas fa-align-center"></i>
+        </button>
+        <button class="control-btn" id="playlist-btn" title="播放列表">
+            <i class="fas fa-list"></i>
+        </button>
+        <button class="control-btn favorite-btn" id="favorite-btn" title="收藏">
+            <i class="far fa-heart"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Lyrics Panel (slide from bottom) -->
+<div class="lyrics-panel" id="lyrics-panel">
+    <div class="lyrics-header">
+        <h3>歌词</h3>
+        <button class="close-lyrics" id="close-lyrics-btn">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="lyrics-content" id="lyrics-content"></div>
+</div>
+
+<!-- Full Player Modal -->
+<div class="player-modal" id="player-modal">
+    <div class="player-modal-backdrop"></div>
+    <div class="player-modal-content">
+        <div class="modal-header">
+            <h3>正在播放</h3>
+            <button class="close-modal" id="close-modal-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-cover-section">
+                <img id="modal-album-cover" class="modal-cover" src="img/暂无图片.jpg" alt="">
+                <div class="modal-song-info">
+                    <h2 id="modal-song-title">歌曲名称</h2>
+                    <p id="modal-song-artist">歌手名称</p>
+                </div>
+            </div>
+            <div class="modal-lyrics-section">
+                <div class="modal-lyrics" id="modal-lyrics"></div>
+            </div>
+        </div>
+    </div>
+</div>

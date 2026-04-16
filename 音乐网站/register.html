@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册 - 音乐网</title>
+    <link rel="icon" href="img/音乐.svg" type="image/svg+xml">
+    <!-- Common CSS (Design System) -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Page-specific CSS (reuse login.css) -->
+    <link rel="stylesheet" href="css/login.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Three.js Particle Background -->
+    <div id="particle-container"></div>
+
+    <!-- Register Page Container -->
+    <div class="login-page">
+        <!-- Left Side - Brand Area -->
+        <div class="brand-section">
+            <div class="brand-content">
+                <div class="logo-container">
+                    <img src="img/微信图片_20241129160757.jpg" alt="Logo" class="brand-logo">
+                    <span class="brand-name">音乐网</span>
+                </div>
+                <h1 class="brand-title">欢迎加入</h1>
+                <p class="brand-tagline">发现音乐之美</p>
+                <div class="brand-decoration">
+                    <div class="glow-orb orb-1"></div>
+                    <div class="glow-orb orb-2"></div>
+                    <div class="glow-orb orb-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Register Form -->
+        <div class="form-section">
+            <div class="login-card glass">
+                <div class="login-header">
+                    <h2>注册</h2>
+                    <p class="login-subtitle">创建您的账号</p>
+                </div>
+
+                <form id="registerForm" class="login-form">
+                    <!-- Phone Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fas fa-phone"></i>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                class="input"
+                                placeholder="手机号"
+                                required
+                                autocomplete="tel">
+                            <button type="button" id="sendCodeBtn" class="send-code-btn">获取验证码</button>
+                        </div>
+                    </div>
+
+                    <!-- Verification Code Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fas fa-shield-alt"></i>
+                            <input
+                                type="text"
+                                id="code"
+                                name="code"
+                                class="input"
+                                placeholder="验证码"
+                                required
+                                maxlength="6">
+                        </div>
+                    </div>
+
+                    <!-- Username Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fas fa-user"></i>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                class="input"
+                                placeholder="用户名"
+                                required
+                                autocomplete="username">
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fas fa-envelope"></i>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="input"
+                                placeholder="电子邮箱"
+                                required
+                                autocomplete="email">
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fas fa-lock"></i>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="input"
+                                placeholder="密码"
+                                required
+                                autocomplete="new-password">
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fas fa-lock"></i>
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                class="input"
+                                placeholder="确认密码"
+                                required
+                                autocomplete="new-password">
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+                    <!-- Register Button -->
+                    <button type="submit" class="login-btn" id="registerBtn">
+                        <span class="btn-text">注册</span>
+                        <span class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
+
+                    <!-- Action Links -->
+                    <div class="form-links">
+                        <span>已有账号？</span>
+                        <a href="login.html" class="link-register">立即登录</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.0.0.js"></script>
+    <script src="js/site.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Particle.js -->
+    <script src="js/particle.js"></script>
+    <!-- Page-specific JS -->
+    <script src="js/register.js"></script>
+</body>
+</html>

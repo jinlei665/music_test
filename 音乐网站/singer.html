@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌曲详情</title>
+    <link rel="icon" href="img/音乐.svg" type="image/svg+xml">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Common CSS (Design System) -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/singer_detail.css">
+</head>
+<body>
+    <!-- Three.js Particle Background -->
+    <div id="particle-container"></div>
+
+    <!-- 返回按钮 -->
+    <a href="javascript:history.back()" class="back-btn">
+        <i class="fas fa-arrow-left"></i> 返回
+    </a>
+
+    <!-- 歌曲详情容器 -->
+    <div class="song-detail-container" id="songDetailContainer">
+        <!-- 加载中 -->
+        <div class="loading-state">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>加载中...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.0.0.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Particle.js -->
+    <script src="js/particle.js"></script>
+    <!-- Site JS -->
+    <script src="js/site.js"></script>
+    <!-- Kugou JS -->
+    <script src="js/kugou.js"></script>
+    <!-- Player JS -->
+    <script src="js/player.js"></script>
+    <!-- Page-specific JS -->
+    <script src="js/singer_detail.js"></script>
+    <!-- Load Unified Player -->
+    <script>
+    $(function() {
+        $.get('player.html', function(html) {
+            $('body').append(html);
+            initMusicPlayer();
+        });
+    });
+    </script>
+</body>
+</html>

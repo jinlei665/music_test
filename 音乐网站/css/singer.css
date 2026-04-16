@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.catalogue {
+  list-style: none;
+  padding: 40px;
+  position: relative;
+  z-index: 5;
+}
+
+.catalogue li {
+  background-color: #151515;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.catalogue li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.catalogue li.singer {
+  font-size: 28px;
+  color: #00ffea;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.catalogue li.singer:hover {
+  transform: translateX(5px);
+  text-shadow: 0 0 5px #00ffea;
+}
+
+.catalogue li.song {
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.catalogue li.song:hover {
+  transform: translateX(5px);
+  text-shadow: 0 0 5px #00ffea;
+}
+
+.catalogue li.album {
+  font-size: 20px;
+  color: #ccc;
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.catalogue li.album:hover {
+  color: #00ffea;
+  text-shadow: 0 0 5px #00ffea;
+}
+
+.catalogue li.singerimg img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.catalogue li.singerimg img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.catalogue li.intro {
+  font-size: 18px;
+  color: #999;
+  line-height: 1.5;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.catalogue li.intro:hover {
+  color: #00ffea;
+  text-shadow: 0 0 5px #00ffea;
+}

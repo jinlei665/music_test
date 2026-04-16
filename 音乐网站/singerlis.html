@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌手列表 - 音乐网</title>
+    <link rel="icon" href="img/音乐.svg" type="image/svg+xml">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Common CSS (Design System) -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/singerlis.css">
+</head>
+<body>
+    <!-- Three.js Particle Background -->
+    <div id="particle-container"></div>
+
+    <!-- Frosted Glass Navbar -->
+    <nav class="navbar glass">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <img src="img/微信图片_20241129160757.jpg" alt="Logo">
+                <span>音乐网</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">发现音乐</a>
+            <a href="rank.html">排行榜</a>
+            <a href="singerlis.html" class="active">歌手</a>
+            <a href="javascript:checkLogin()">个人中心</a>
+        </div>
+        <div class="nav-right">
+            <div class="search-bar">
+                <input type="text" placeholder="搜索歌手..." id="singerSearch">
+                <button type="button" class="search-btn" id="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <a href="javascript:checkLogin()" class="user-btn" id="user-btn">
+                <i class="far fa-user"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">歌手列表</h1>
+
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <span class="category-tab active" data-category="all">全部</span>
+                <span class="category-tab" data-category="chinese">华语</span>
+                <span class="category-tab" data-category="western">欧美</span>
+                <span class="category-tab" data-category="jk">日韩</span>
+                <span class="category-tab" data-category="other">其他</span>
+            </div>
+
+            <!-- Singer Grid -->
+            <div class="singer-grid" id="singerList">
+                <!-- Singers will be dynamically loaded -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.0.0.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Particle.js -->
+    <script src="js/particle.js"></script>
+    <!-- Site JS -->
+    <script src="js/site.js"></script>
+    <!-- Player JS -->
+    <script src="js/player.js"></script>
+    <!-- Page-specific JS -->
+    <script src="js/singerlis.js"></script>
+    <!-- Load Unified Player -->
+    <script>
+    $(function() {
+        $.get('player.html', function(html) {
+            $('body').append(html);
+            initMusicPlayer();
+        });
+    });
+    </script>
+</body>
+</html>

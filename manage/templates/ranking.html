@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="/static/css/ranking.css">
+<link rel="stylesheet" href="/static/js/layer/layer/theme/default/layer.css">
+<script src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/layer/layer/layer.js"></script>
+<script src="/static/js/ranking.js"></script>
+<body>
+
+{#<video controls="controls" id="vi" loop autoplay muted aria-controls="false" >#}
+{##}
+{#<source src="/static/images/welcome.mp4" type="video/mp4" >#}
+{##}
+{##}
+{##}
+{#</video>#}
+{#    <img src="/static/images/3.webp" alt="">#}
+    <!-- 在搜索框后添加显示条数选择 -->
+    <form action="/ranking/find_ranking" method="get">
+        <input type="text" name="name" value="{{ data.name }}" placeholder="请输入排行榜名称">
+        <select name="rows" style="margin-left:10px;padding:5px">
+            <option value="5" {% if data.rows==5 %}selected{% endif %}>5条/页</option>
+            <option value="10" {% if data.rows==10 %}selected{% endif %}>10条/页</option>
+            <option value="20" {% if data.rows==20 %}selected{% endif %}>20条/页</option>
+        </select>
+        <input type="submit" value="搜索">
+    </form>
+
+    
+        <button type="button" class="bth_add">新增</button>
+        <table>
+            <thead>
+                <tr>
+                    <td>排行id</td>
+                    <td>名字</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for item in data.lis %}
+                        <tr>
+                            <td>{{ item["id"] }}</td>
+                            <td>{{ item["name"] }}</td>
+                            <td class="bth">
+                                <p data-id="{{ item["id"] }}">修改</p>
+                                <p data-id="{{ item["id"] }}" data-name="{{ item["name"] }}">删除</p>
+                            </td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- 在表格下方添加分页 -->
+        <div class="pagination">
+            {% if data.page > 1 %}
+                <a href="/ranking/find_ranking?name={{ data.name }}&page={{ data.page-1 }}&rows={{ data.rows }}">&laquo; 上一页</a>
+            {% endif %}
+            
+            {% for p in range(1, data.total_pages+1) %}
+                <a href="/ranking/find_ranking?name={{ data.name }}&page={{ p }}&rows={{ data.rows }}" 
+                {% if p == data.page %}class="active"{% endif %}>{{ p }}</a>
+            {% endfor %}
+            
+            {% if data.page < data.total_pages %}
+                <a href="/ranking/find_ranking?name={{ data.name }}&page={{ data.page+1 }}&rows={{ data.rows }}">下一页 &raquo;</a>
+            {% else %}
+                <a class="disabled">下一页 &raquo;</a>
+            {% endif %}
+        </div>
+
+</body>
+</html>

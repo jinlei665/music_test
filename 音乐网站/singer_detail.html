@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌手详情 - 音乐网</title>
+    <link rel="icon" href="img/音乐.svg" type="image/svg+xml">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Common CSS (Design System) -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/singer_detail.css">
+</head>
+<body>
+    <!-- Three.js Particle Background -->
+    <div id="particle-container"></div>
+
+    <!-- 返回按钮 -->
+    <a href="singerlis.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> 返回
+    </a>
+
+    <!-- 主内容 - 左右分栏 -->
+    <div class="detail-container">
+        <!-- 左侧歌手信息 -->
+        <aside class="singer-sidebar">
+            <div class="singer-avatar-large">
+                <img id="singerAvatar" src="img/暂无图片.jpg" alt="歌手头像">
+            </div>
+            <h1 class="singer-name" id="singerName">加载中...</h1>
+
+            <button class="btn-favorite" id="favoriteBtn">
+                <i class="far fa-heart"></i>
+                <span>收藏</span>
+            </button>
+
+            <div class="singer-intro">
+                <h3>歌手简介</h3>
+                <p id="singerIntro">暂无简介</p>
+            </div>
+        </aside>
+
+        <!-- 右侧歌曲列表 -->
+        <main class="singer-content">
+            <!-- 筛选排序工具栏 -->
+            <div class="content-toolbar">
+                <div class="filter-tabs">
+                    <span class="filter-tab active" data-filter="all">全部</span>
+                    <span class="filter-tab" data-filter="album">专辑</span>
+                    <span class="filter-tab" data-filter="single">单曲</span>
+                </div>
+                <div class="sort-options">
+                    <span class="sort-label">排序:</span>
+                    <select id="sortSelect">
+                        <option value="default">默认</option>
+                        <option value="newest">最新</option>
+                        <option value="hot">最热</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 歌曲列表 -->
+            <div class="song-list" id="songList">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>加载中...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.0.0.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Particle.js -->
+    <script src="js/particle.js"></script>
+    <!-- Site JS -->
+    <script src="js/site.js"></script>
+    <!-- Player JS -->
+    <script src="js/player.js"></script>
+    <!-- Kugou JS -->
+    <script src="js/kugou.js"></script>
+    <!-- Page-specific JS -->
+    <script src="js/singer_detail.js"></script>
+    <!-- Load Unified Player -->
+    <script>
+    $(function() {
+        $.get('player.html', function(html) {
+            $('body').append(html);
+            initMusicPlayer();
+        });
+    });
+    </script>
+</body>
+</html>

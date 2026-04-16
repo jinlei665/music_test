@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - 音乐网</title>
+    <link rel="icon" href="img/音乐.svg" type="image/svg+xml">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Common CSS (Design System) -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/Personal_Center.css">
+</head>
+<body>
+    <!-- Three.js Particle Background -->
+    <div id="particle-container"></div>
+
+    <!-- Frosted Glass Navbar -->
+    <nav class="navbar glass">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <img src="img/微信图片_20241129160757.jpg" alt="Logo">
+                <span>音乐网</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">发现音乐</a>
+            <a href="rank.html">排行榜</a>
+            <a href="singerlis.html">歌手</a>
+            <a href="Personal_Center.html" class="active">个人中心</a>
+        </div>
+        <div class="nav-right">
+            <div class="search-bar">
+                <input type="text" placeholder="搜索音乐..." id="search-input">
+                <button type="button" class="search-btn" id="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <a href="javascript:checkLogin()" class="user-btn" id="user-btn">
+                <i class="far fa-user"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Left Sidebar - User Info -->
+        <aside class="sidebar glass">
+            <div class="user-profile">
+                <div class="avatar-wrapper">
+                    <img src="img/default-avatar.jpg" alt="用户头像" class="user-avatar" id="userAvatar">
+                    <button class="avatar-edit-btn" title="修改头像">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <h2 class="username" id="username">用户</h2>
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-heart"></i>
+                        <span class="stat-value" id="favoritesCount">0</span>
+                        <span class="stat-label">收藏</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-value" id="fansCount">0</span>
+                        <span class="stat-label">粉丝</span>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>退出登录</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <section class="content-area">
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="favorites">
+                    <i class="fas fa-heart"></i>
+                    <span>我喜欢</span>
+                </button>
+                <button class="tab-btn" data-tab="uploads">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>我的上传</span>
+                </button>
+                <button class="tab-btn" data-tab="history">
+                    <i class="fas fa-history"></i>
+                    <span>最近播放</span>
+                </button>
+                <div class="tab-indicator"></div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Favorites Tab -->
+                <div class="tab-panel active" id="favorites-panel">
+                    <div class="song-grid" id="favorites-grid">
+                        <!-- Songs will be dynamically loaded -->
+                    </div>
+                    <div class="empty-state" id="favorites-empty" style="display: none;">
+                        <i class="fas fa-heart-broken"></i>
+                        <p>还没有收藏任何歌曲</p>
+                    </div>
+                </div>
+
+                <!-- Uploads Tab -->
+                <div class="tab-panel" id="uploads-panel">
+                    <div class="song-grid" id="uploads-grid">
+                        <!-- Songs will be dynamically loaded -->
+                    </div>
+                    <div class="empty-state" id="uploads-empty" style="display: none;">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>还没有上传任何歌曲</p>
+                    </div>
+                </div>
+
+                <!-- History Tab -->
+                <div class="tab-panel" id="history-panel">
+                    <div class="song-grid" id="history-grid">
+                        <!-- Songs will be dynamically loaded -->
+                    </div>
+                    <div class="empty-state" id="history-empty" style="display: none;">
+                        <i class="fas fa-history"></i>
+                        <p>还没有播放记录</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loading-state">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>加载中...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.0.0.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Particle.js -->
+    <script src="js/particle.js"></script>
+    <!-- Site JS -->
+    <script src="js/site.js"></script>
+    <!-- Kugou JS -->
+    <script src="js/kugou.js"></script>
+    <!-- Player JS -->
+    <script src="js/player.js"></script>
+    <!-- Page-specific JS -->
+    <script src="js/Personal_Center.js"></script>
+    <!-- Load Unified Player -->
+    <script>
+    $(function() {
+        $.get('player.html', function(html) {
+            $('body').append(html);
+            initMusicPlayer();
+        });
+    });
+    </script>
+</body>
+</html>

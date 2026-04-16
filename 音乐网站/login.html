@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录 - 音乐网</title>
+    <link rel="icon" href="img/音乐.svg" type="image/svg+xml">
+    <!-- Common CSS (Design System) -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Three.js Particle Background -->
+    <div id="particle-container"></div>
+
+    <!-- Login Page Container -->
+    <div class="login-page">
+        <!-- Left Side - Brand Area -->
+        <div class="brand-section">
+            <div class="brand-content">
+                <div class="logo-container">
+                    <img src="img/微信图片_20241129160757.jpg" alt="Logo" class="brand-logo">
+                    <span class="brand-name">音乐网</span>
+                </div>
+                <h1 class="brand-title">欢迎回来</h1>
+                <p class="brand-tagline">发现音乐之美</p>
+                <div class="brand-decoration">
+                    <div class="glow-orb orb-1"></div>
+                    <div class="glow-orb orb-2"></div>
+                    <div class="glow-orb orb-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="form-section">
+            <div class="login-card glass">
+                <div class="login-header">
+                    <h2>登录</h2>
+                    <p class="login-subtitle">请输入您的账号信息</p>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <!-- Username Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fas fa-user"></i>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                class="input"
+                                placeholder="用户名"
+                                required
+                                autocomplete="username">
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="input-icon fas fa-lock"></i>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="input"
+                                placeholder="密码"
+                                required
+                                autocomplete="current-password">
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+                    <!-- Login Button -->
+                    <button type="submit" class="login-btn" id="loginBtn">
+                        <span class="btn-text">登录</span>
+                        <span class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
+
+                    <!-- Action Links -->
+                    <div class="form-links">
+                        <a href="register.html" class="link-register">注册账号</a>
+                        <span class="link-separator">|</span>
+                        <a href="javascript:void(0)" class="link-forgot">忘记密码</a>
+                    </div>
+                </form>
+
+                <!-- Register Link -->
+                <div class="register-prompt">
+                    <span>还没有账号？</span>
+                    <a href="register.html">立即注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.0.0.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Particle.js -->
+    <script src="js/particle.js"></script>
+    <!-- Site JS -->
+    <script src="js/site.js"></script>
+    <!-- Page-specific JS -->
+    <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!-- 设置字符编码为UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- 设置网页标题 -->
+    <title>排行新增</title>
+    <!-- 引入CSS样式表 -->
+    <link rel="stylesheet" href="/static/css/ranking_add.css">
+    <!-- 引入layer样式表 -->
+    <link rel="stylesheet" href="/static/js/layer/layer/theme/default/layer.css">
+    <!-- 引入jQuery库 -->
+    <script src="/static/js/jquery-3.0.0.js"></script>
+    <!-- 引入layer库 -->
+    <script src="/static/js/layer/layer/layer.js"></script>
+    <!-- 引入singer.js库 -->
+    <script src="/static/js/singer.js"></script>
+</head>
+<body>
+     <!-- 表单 -->
+     <form action="" id="addForm">
+        <!-- 表单标题 -->
+        <h2>信息新增</h2>
+        <!-- 歌手名称输入框 -->
+        <div>
+            <label for="singer">歌手名称：</label>
+            <input type="text" name="singer" id="singer">
+        </div>
+         <!-- 歌手id输入框 -->
+         <div>
+            <label for="id">歌手id：</label>
+            <input type="text" name="id" id="id">
+        </div>
+         <!-- 歌手图片上传框 -->
+         <div>
+            <label for="singerimg">歌手图片：</label>
+            <input type="file" name="singerimg" id="img">
+        </div>
+        <!-- 保存按钮 -->
+        <button type="button" id="btn_add">保存</button>
+    </form>
+
+    <!-- 眼睛效果 -->
+    <div class="eyes">
+          <!-- 左眼 -->
+          <div class="eye">
+            <!-- 眼珠 -->
+            <div class="ball"></div>
+          </div>
+
+          <!-- 右眼 -->
+          <div class="eye">
+            <!-- 眼珠 -->
+            <div class="ball"></div>
+          </div>
+        </div>
+
+    <!-- JavaScript代码 -->
+    <script type="text/javascript">
+      // 获取所有眼珠元素
+      var balls = document.getElementsByClassName("ball");
+      // 监听鼠标移动事件
+      document.onmousemove = function(){
+        // 获取鼠标在窗口中的位置
+        var x = event.clientX * 100 / window.innerWidth + "%";
+        var y = event.clientY * 100 / window.innerHeight + "%";
+
+        // 遍历所有眼珠元素
+        for(var i=0;i<2;i++){
+          // 设置眼珠位置
+          balls[i].style.left = x;
+          balls[i].style.top = y;
+          // 设置眼珠的transform属性，使其跟随鼠标移动
+          balls[i].style.transform = "translate(-" + x +",-" + y +")";
+        }
+      }
+    </script>
+</body>
+</html>
